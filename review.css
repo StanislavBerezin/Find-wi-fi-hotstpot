@@ -1,4 +1,5 @@
-
+/* removing the gaps from corners and borders and setting up the font, plus border box for 
+aligning elements */
 body {
     margin:0px;
     padding:0px;
@@ -7,22 +8,26 @@ body {
 
 
 }
-
+/* map should take 60% of the screen all the time */
 .map{
 
-    background-color: #3498db;
-    height:400px;
+  
+    height:60vh;
 }
+/* all reviwing elements should be centered and with min-width */
 .flex-all{
     display:flex;
     margin: 0 auto;
     max-width:1124px;
     flex-wrap:wrap;
     background-color: #fff;
+  
 }
+/* here he display the total rating and a button that is used to leave a rating
+all of the elements a left-sided as the name of the class suggests */
 .left-side{
     flex: 1 1 400px;
-
+     margin-top:30px;
     display:flex;
     height:0%;
     justify-content: center;
@@ -30,13 +35,15 @@ body {
     align-items: center;
     text-align: left;
 }
+/* this is the dimensional parameters for dots represting rating (stars) */
 .dot {
   height: 25px;
   width: 25px;
-  background-color: #1abc9c;
+  background-color: #3fdba4;
   border-radius: 50%;
   display: inline-block;
 }
+/* an empty dot which is in grey color */
 .dot-grey{
       height: 25px;
   width: 25px;
@@ -45,40 +52,38 @@ body {
   display: inline-block;
 
 }
-.circles:nth-last-child(){
-    background-color:red;
-}
-
+/* 
+name of the shop, setting up the font weight */
 .placename{
     font-weight:400 !important;
     
 }
+/* margin for the circle top and bottom to give spacing */
 .circles{
     margin: 20px 0px 20px 0px;
 }
+
 .button-filled{
-    background-color: #3498db;
+    background-color: #54a0ff;
+    border:1px solid #54a0ff;
     padding:10px;
     border-radius: 20px;
     color:#fff;
-    width:180px;
-    margin-top:20px;
-    margin-bottom:20px;
-    text-align: center;
+    width: 40%;
+    font-size:1em;
     align-self: center;
+    text-align: center;
+    width:100px;
     font-weight: 400;
     cursor: pointer;
-     transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
 }
 .button-filled:hover{
-    background-color:#1abc9c;
-   
+    background-color:#0984e3;
+    border:1px solid #0984e3;
     
-    box-shadow: 5px 7px 2px 2px #ecf0f1;
 }
-.circles:nth-child(2){
-    background:red;
-}
+/* it displays ratings and and button in a more accurate way(centered and columned) */
 .test{
     display:flex;
     flex-direction: column;
@@ -90,15 +95,13 @@ body {
 
 /* here we start the right side with ratings and review */
 .right-side{
+    margin-top:30px;
     display:flex;
     flex-direction: column;
     flex: 1 1 400px;
     padding-left:30px;
 }
-.ratngs-comments{
-    
-
-}
+/* name and other stuff from user to be displayed as flexbox with space between */
 .user-details{
     display:flex;
     justify-content: space-between;
@@ -109,8 +112,31 @@ body {
    
     padding:50px;
     text-align: center;
-    background: linear-gradient(90deg, #3498db, #1abc9c);
+    background: linear-gradient(to right, #3fdba4 , #3fdb73);
     color:#fff;
     font-size: 150%;
     font-weight:100;
+}
+
+/* 
+navigation that has a brandname and a button to redirect a user to search page */
+.nav{
+   background: linear-gradient(to right, #3fdba4 , #3fdb73);
+    height:45px;
+    padding:20px;
+    display:flex;
+    justify-content: space-between;
+    color: #fff;
+    
+}
+.nav a {
+    float:right;
+    width: 100px;
+}
+.nav h1{
+    margin-top:0px;
+}
+
+a{
+    text-decoration: none !important;
 }

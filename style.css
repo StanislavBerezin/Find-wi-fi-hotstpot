@@ -1,0 +1,214 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+#header{
+
+	display: flex;
+	justify-content: space-between;
+	padding-left:5%;
+	padding-right:5%;
+	padding-top:2%;
+	padding-bottom:2%;
+	width: 100%;
+	color: white;
+	height:80px;	
+	background: linear-gradient(to right, #3fdba4 , #3fdb73);
+}
+
+#wrapper {
+
+	min-height: 100%;
+
+}
+.mega-wrap{
+	display:flex;
+	flex-direction: column;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+	padding: 0;
+	display:block;
+}
+
+
+
+body{
+
+	font-family: 'Lato', sans-serif;
+}
+
+h2 {
+	color: #bdc3c7;
+	letter-spacing: 3px;
+	font-style: thin;
+}
+
+#header h2{
+
+	color: white;
+
+}
+
+
+#searchBar {
+
+	margin-bottom: 15px;
+	
+
+}
+
+#searchBar input {
+
+	margin-left: 5px;
+	
+
+
+}
+
+#searchBar select{
+
+	margin-left: 5px;
+	
+
+}
+/* to add some height and transition when trying to search */
+#suburbSelect, #ratingSelect {
+	height:70px;
+	outline: none;
+	transition: 1s ease-in-out;
+}
+
+input[type=search] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 15px;
+	border-radius: 15px;
+	outline:none;
+	height:70px;
+	transition: 1s ease-in-out;
+}
+
+input[type=search]:focus {
+	border-color:#0984e3;
+	
+}
+
+input[type=submit] {
+    width: 100px;
+    cursor:pointer;
+    background:#ccc;
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 15px;
+	border-radius: 15px; 
+	height:70px;
+    background-color: #54a0ff;
+	border:1px solid #54a0ff;
+	color:#fff;
+	font-size: 15px;
+	transition: 1s ease-in-out;
+	outline:none;
+	
+}
+
+input[type=submit]:hover{
+	background-color:#0984e3;
+    border:1px solid #0984e3;
+}
+
+select {
+	padding:5px;
+	height:70px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 15px;
+	border-radius: 15px;
+	transition: 1s ease-in-out;
+}
+
+select:focus {
+
+	border-color:#0984e3;
+
+}
+/* 
+giving 60% of screen height to the map at any time */
+#mapContainer {
+	width: 100%;
+	height: 60vh;
+	margin-bottom: 10px;
+	
+}
+
+
+
+/* 
+to make the footer stick to the bottom at anytime */
+.mega-wrap{
+	height:100vh;
+}
+
+
+#footer {
+	flex-shrink: 0;
+	width: 100%;
+	height:200px;
+	font-size: 8pt;
+	color: white;
+	align-items: center;
+	background: linear-gradient(to right, #3fdba4 , #3fdb73);
+}
+
+
+/* properties for the nav bar like background color, positioning of elements, colors and dimensional parameters */
+.nav{
+   background: linear-gradient(to right, #3fdba4 , #3fdb73);
+    height:45px;
+    padding:20px;
+    display:flex;
+    justify-content: space-between;
+    color: #fff;
+    
+}
+.nav a {
+    float:right;
+    width: 100px;
+}
+.nav h1{
+    margin-top:0px;
+}
+
+/* this is the design for he nav buttons with transition and hovering effects */
+.button-filled{
+    background-color: #54a0ff;
+    border:1px solid #54a0ff;
+    padding:10px;
+    border-radius: 20px;
+	color:#fff;
+	text-align: center;
+    width: 40%;
+    font-size:1em;
+    align-self: center;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 1s ease-in-out;
+}
+.button-filled:hover{
+    background-color:#0984e3;
+    border:1px solid #0984e3;
+    transition: 1s;
+}
+/* removing all styling and decorations from links */
+a{
+    text-decoration: none !important;
+}
+
+/* to move the sign in and register buttons a bit apart from each other */
+.fix{
+	margin-left:10px;
+}
