@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <link rel="stylesheet" href="results.css" type="text/css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script type="text/javascript" src="scripts.js"></script>
+  <script type="text/javascript" src="scripts.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
   <!-- <link href="css/normalize.css" rel="stylesheet">
@@ -17,10 +17,8 @@
 
 <body>
   <div class="wrapper">
-    <div class="nav">
-        <h1>Brandname</h1>
-      <a class="button-filled" href="wifiRough.html"> Search </a>
-    </div>
+    <?php  require "./small/searchNav.php" ?>
+
       <div class="flex-wrapper">
           <div class="sidemenu">
               <h1 class="logo">Your results:</h1>
@@ -99,13 +97,4 @@
         </div>
 
   </div>
-    	<div class="flex-container" id="footer">
-
-			<p>&copy 2018 SOMETHING</p>
-
-		</div>
-
-
-</body>
-
-</html>
+<?php  require "./small/footer.php" ?>

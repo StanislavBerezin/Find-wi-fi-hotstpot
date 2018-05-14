@@ -1,29 +1,9 @@
-<!DOCTYPE html>
-<html>
+<?php  require "./small/header.php" ?>
 
-<head>
-    <title>SOMETHING | Brisbane Wifi Finder</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script type="text/javascript" src="scripts.js"></script>
-</head>
-
-<body>
     <div class="mega-wrap">
 
-        <div class="nav">
-       <h1>Brandname</h1>
-       <div class="flex-between">
-            <a class = "button-filled fix" href="login.html">Sign In</a>
-            <a class = "button-filled" href="register.html">Register</a>
-        </div>
-       
-    </div>
+    <?php  require "./small/registerNav.php" ?>
   
-   
-
-
         <div class="flex-container" id="mapContainer">
 
             <script type="text/javascript">
@@ -68,11 +48,5 @@
 				</div>
             </div>
         </div>
-		<div class="flex-container" id="footer">
-
-			<p>&copy 2018 SOMETHING</p>
-
-		</div>
-
-</body>
-</html>
+        
+<?php  require "./small/footer.php" ?>

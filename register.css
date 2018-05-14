@@ -81,6 +81,7 @@ and creating a gap between the footer and the form */
     transition: 1s ease-in-out;
     text-align: center;
 }
+
 /* it  creates a button too but the with outline design and transition effect */
 .button-outlined{
     border:1px solid #27ae60;

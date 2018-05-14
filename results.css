@@ -24,9 +24,8 @@ body{
 /* sidemenu with scrollable effect and removing a scroll for horizontal position */
 .sidemenu{
     overflow: scroll;
-    flex-basis: 30%;
+    flex-basis: 42%;
     overflow-x: hidden; 
-    
     background-color:#3fdba4;
 }
 /* this is for all elements that are displayed as a column in a sidemenu for search results 
@@ -76,7 +75,7 @@ giving a cursor pointed and flex in a form of column*/
 /* properties of the map */
 #mapContainer {
 	width: 100%;
-	margin-bottom: 10px;
+	border:1px solid red;
 	
 }
 a{
