@@ -1,52 +1,73 @@
+<!-- Our index page, the page where users able to perform searches  -->
+<?php  session_start(); ?>
 <?php  require "./small/header.php" ?>
+<meta itemprop="accessibilityControl" content="fullMouseControl">
+  <meta itemprop="accessibilityHazard" content="noFlashingHazard">
+  <meta itemprop="accessibilityHazard" content="noMotionSimulationHazard">
+  <meta itemprop="accessibilityHazard" content="noSoundHazard">
+<div class="mega-wrap">
+	<div>
+		<?php  require "./small/searchNav.php" ?>
+	</div>
+	<div class='intro-screen'>
+		<div id='text-intro'>
 
-    <div class="mega-wrap">
+		<h1 >Wifi hotspot finder</h1>
+		<hr>
+	<h3 >Find the best around you</h3>
+</div>
 
-    <?php  require "./small/registerNav.php" ?>
-  
-        <div class="flex-container" id="mapContainer">
 
-            <script type="text/javascript">
-                initMap();
-            </script>
+</div>
+	<div class="hide-it">
 
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLNgLe9iS9uMammPCATYMQG1-R3L6NZYc&callback=initMap">
-            </script>
+		<?php  require "./db/mainPageMap.php" ?>
 
-        </div>
+	</div>
+	<div class="flex-container" id="searchContainer">
 
-        <div class="flex-container" id="searchContainer">
-            <div class="flex-container" id="headline">
-                <h2>FIND THE BEST WIFI HOTSPOTS IN BRISBANE</h1></div>
+		<div id="searchBar">
 
-				<div class="flex-container" id="searchBar">
+			<h2 id='headline'>FIND THE BEST WIFI HOTSPOTS IN BRISBANE</h1>
+				<div class="search-items">
+					<form onsubmit="return searchValidator()" class='formSearch' action="results.php" method="GET">
 
-				<input type="search" name="wifiName">
+						<input type="search" id="idWifiName" name="wifiName">
 
-				<select id="ratingSelect">
+						<select id="ratingSelect" name="ratings">
+				 
+									<option disabled selected>Rating</option>
+									<option value="5">5</option>
+									<option value="4">4</option>
+									<option value="3">3</option>
+									<option value="2">2</option>
+									<option value="1">1</option>
+				
+								</select>
+						<?php  require "./db/dropDown.php" ?>
 
-					<option disabled selected>Rating</option>
-					<option value="five">5</option>
-					<option value="four">4</option>
-					<option value="three">3</option>
-					<option value="two">2</option>
-					<option value="one">1</option>
+						<input type="submit" name="searchSubmit">
 
-				</select>
 
-				<select id="suburbSelect">
-
-					<option disabled selected>Suburb</option>
-					<option value="carindale">Carindale</option>
-					<option value="mansfield">Mansfield</option>
-					<option value="mtGravatt">Mt Gravatt</option>
-					<option value="annerley">Annerley</option>
-
-				</select>
-
-				<input type="submit" class="button" name="searchSubmit">
+					</form>
+					
+					<div id="snackbar"></div>
 				</div>
-            </div>
-        </div>
-        
+				<h2 id='headline'>All locations around Brisbane</h1>
+		</div>
+	</div>
+	<div class="flex-container" id="mapContainer">
+
+
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIzI21475EerXIZBjSqiJyuXBdktFWYbk&callback=initMap"
+		    async defer>
+			initMap();
+		</script>
+
+	</div>
+
+
+</div>
+
+
 <?php  require "./small/footer.php" ?>

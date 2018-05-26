@@ -1,35 +1,80 @@
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('mapContainer'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 15
-  });
-  var infoWindow = new google.maps.InfoWindow;
+ function initMap() {
 
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+     var latiData = document.getElementsByClassName("latPhp");
+     var longData = document.getElementsByClassName("lonPhp");
+     var nameData = document.getElementsByClassName("namePhp");
+     var addressData = document.getElementsByClassName("addressPhp");
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-}
+     var arrayLati = [].slice.call(latiData);
+     var arrayLong = [].slice.call(longData);
+     var arrayName = [].slice.call(nameData);
+     var arrayAddress = [].slice.call(addressData);
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
-}
+
+     var arrayCoords = [];
+     for (var i = 0; i < arrayLati.length; i++) {
+         arrayCoords.push({
+             location: {
+                 lat: Number(arrayLati[i].value),
+                 lng: Number(arrayLong[i].value)
+             },
+             description: `
+                        <div class = 'card-pos'>
+                        <h3> ${arrayName[i].innerHTML}</h3>
+                        <p>${arrayAddress[i].innerHTML} </p>
+                        <img class='resize' src ="http://pluspng.com/img-png/wifi-hd-png-wi-fi-png-images-png-image-1008.png">
+                        </div>`
+
+         })
+
+         
+     }
+
+     // Map options
+     var options = {
+         zoom: 13,
+         center: {
+             lat: Number(arrayLati[0].value),
+             lng: Number(arrayLong[0].value)
+         }
+     }
+
+     // New map
+     var map = new google.maps.Map(document.getElementById('mapContainer'), options);
+
+     // Listen for click on map
+     google.maps.event.addListener(map, 'click', function (event) {
+         // Add marker
+         addPointer({
+             coords: event.latLng
+         });
+     });
+
+     // build pointers on the map
+     for (var i = 0; i < arrayCoords.length; i++) {
+         // Add pointers
+         addPointer(arrayCoords[i]);
+     }
+
+
+
+     // Pointer function to add them to the map
+     function addPointer(props) {
+         var pointer = new google.maps.Marker({
+             position: props.location,
+             map: map,
+         });
+
+         // If there is description, then display it
+         if (props.description) {
+             var infoWindow = new google.maps.InfoWindow({
+                 content: props.description
+             });
+
+             pointer.addListener('click', function () {
+                 infoWindow.open(map, pointer);
+             });
+         }
+     }
+
+ }

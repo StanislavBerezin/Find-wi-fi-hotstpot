@@ -1,69 +1,49 @@
-<?php  require "./small/header.php" ?>
+<!-- the page that is responbile for individual item component where users can leave their reviews -->
+<?php  session_start(); ?>
+<?php  require "./small/headerReview.php" ?>
 <?php  require "./small/searchNav.php" ?>
-  
-  <div class="flex-container map" id="mapContainer">
+<?php  require "./db/specific.php" ?>
+<?php  require "./db/submitReview.php" ?>
 
-            <script type="text/javascript">
-                initMap();
-            </script>
 
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLNgLe9iS9uMammPCATYMQG1-R3L6NZYc&callback=initMap">
-            </script>
-
-        </div>
- <div class="flex-all">
+<div class="flex-container map" id="mapContainer">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIzI21475EerXIZBjSqiJyuXBdktFWYbk&callback=initMap"
+        async defer>
+        initMap();
+    </script>
+</div>
+<div class="flex-all">
 
     <div class="left-side">
         <div class="test">
-            <h2  class="placename" style="color:#2c3e50;">PlaceName cafe</h1>
-        <p style="font-size: 120%;" class="get_grey">15 Location street</p>
-        
-        <div class="circles">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot-grey"></span>
+            <h2 class="placename" style="color:#2c3e50;">
+                <?php echo htmlspecialchars($row['name']) ?>
+                </h1>
+                <p style="font-size: 120%;" class="get_grey">
+                    <?php echo htmlspecialchars($row['address']) ?>
+                </p>
+                <!-- on the left side, showing the average rating -->
+                <?php  require "./db/spotRating.php" ?>
+
+
         </div>
-        
-        <a class="button-filled">Review</a>
+
     </div>
-    
- </div>
 
-    <div class="right-side"> 
-        <div class="comment">
-            <div class="ratings-comments">
-            <div class="circles">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-        </div>
-            <p class="get_grey"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-            <div class="user-details"><p>Username Joe </p>  <p class="get_grey"> 12/12/2014</p></div>
-        </div>
-        <div class="comment">
-            <div class="ratings-comments">
+    <div class="right-side">
 
-            <div class="circles">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot-grey"></span>
-                    <span class="dot-grey"></span>
-            </div>
-            <p class="get_grey"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-        
-            <div class="user-details"><p>Username Joe </p>  <p class="get_grey"> 12/12/2014</p></div>
+        <!-- getting the reviews from the database -->
+        <?php  require "./db/getReviews.php" ?>
 
-        </div>
-        
-        
-            
+
+        <!-- to decide if we need to display the form to submit a review, if a user has already submited it, then dont show a form -->
+        <?php  require "./db/ifSubmited.php" ?>
+
+
+
+
+
+
     </div>
 </div>
 

@@ -1,0 +1,212 @@
+/* removing the gaps from corners and borders and setting up the font, plus border box for 
+aligning elements */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/* map should take 60% of the screen all the time */
+
+.map {
+    height: 60% !important;
+}
+
+/* all reviwing elements should be centered and with min-width */
+
+.flex-all {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1124px;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+
+/* here he display the total rating and a button that is used to leave a rating
+all of the elements a left-sided as the name of the class suggests */
+
+.left-side {
+    flex: 1 1 400px;
+    margin-top: 30px;
+    display: flex;
+    height: 0%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+/* this is the dimensional parameters for dots represting rating (stars) */
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #3fdba4;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* an empty dot which is in grey color */
+
+.dot-grey {
+    height: 25px;
+    width: 25px;
+    background-color: #bdc3c7;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* 
+name of the shop, setting up the font weight */
+
+.placename {
+    font-weight: 400 !important;
+}
+
+/* margin for the circle top and bottom to give spacing */
+
+.circles {
+    margin: 20px 0px 20px 0px;
+}
+
+.button-filled {
+    background-color: #54a0ff;
+    border: 1px solid #54a0ff;
+    padding: 10px;
+    border-radius: 20px;
+    color: #fff;
+    width: 40%;
+    font-size: 1em;
+    align-self: center;
+    text-align: center;
+    width: 100px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 1s ease-in-out;
+}
+
+.button-filled:hover {
+    background-color: #0984e3;
+    border: 1px solid #0984e3;
+}
+
+/* it displays ratings and and button in a more accurate way(centered and columned) */
+
+.test {
+    display: flex;
+    flex-direction: column;
+}
+
+.get_grey {
+    color: #34495e;
+    text-shadow: 1px 1px #ecf0f1;
+}
+
+/* here we start the right side with ratings and review */
+
+.right-side {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 400px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* name and other stuff from user to be displayed as flexbox with space between */
+
+.user-details {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    float: right;
+}
+
+/* footer */
+
+.footer {
+    padding: 50px;
+    text-align: center;
+    background: linear-gradient(to right, #3fdba4, #3fdb73);
+    color: #fff;
+    font-size: 150%;
+    font-weight: 100;
+}
+
+.test h2 {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.review-text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: auto;
+}
+.must-be{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding:20px;
+}
+.comment {
+    border: 2px solid #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: auto;
+}
+
+.text-danger {
+    background-color: #ec2F4B;
+    border: 1px solid #ec2F4B;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 80%;
+    font-size: 1em;
+    align-self: center;
+    font-weight: 400;
+
+    transition: 1s ease-in-out;
+    text-align: center;
+    margin: 20px;
+}
+
+@media only screen and (max-width: 340px) {
+    .user-here {
+        justify-content: center;
+        padding-top: 20px;
+    }
+    .user-here a {
+        margin-top: 10px;
+    }
+    .comment {
+        text-align: center;
+    }
+    .user-details {
+        width: 100%;
+        float: none;
+        flex-wrap: wrap;
+    }
+    .right-side {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .user-details p {
+        margin-bottom: 10px;
+    }
+    .test {
+        text-align: center;
+    }
+    .test h2 {
+        margin-bottom: 10px;
+    }
+}

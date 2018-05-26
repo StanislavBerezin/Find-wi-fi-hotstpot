@@ -1,50 +1,51 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="author" content="">
-  <meta name="description" content="">
-  <link rel="stylesheet" href="register.css" type="text/css"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<!-- If user is already logged then no need to show this page, should redirect to index page -->
+<?php
+session_start();
+if(isset($_SESSION['username'])){
+  header("Location: wifiRough.php");
+}
 
-  <!-- <link href="css/normalize.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet"> -->
-</head>
 
-<body>
+?>
+
+<?php  require "./small/headerLogin.php" ?>
+
   <div class="wrapper">
+    <!-- search nav, and most the loginDb.php file that is responbile for database interaction importantly -->
        <?php  require "./small/searchNav.php" ?>
+       <?php  include "./db/loginDb.php" ?>
+
+    <!-- the form that that gets the data from user -->
   <form action="" class="entire" method="post">
-   
- <div class="register">
-    <h3 id="create">LOGIN</h3>
-   <input type="email" placeholder = "Email" name="fname"  value="" class="inputs" required><br>
 
-  <input type="password"
-  title="Should be one number, one uppercase, one lowercase letter, and at least 8 characters"
-   placeholder = "Password" 
-  name="lname"  value=""class="inputs" required><br>
- 
+      <div class="register">
 
- <input type="submit" class="button-filled" value="Sign in">
-  <p>Already have an account?</p>
-  
-  <a class="button-outlined" type="submit" value="Submit" href="register.html">Register</a>
 
- </div>
+          <h3 id="create">LOGIN</h3>
+
+                <input type="email" placeholder = "Email" name="email"  value="" class="inputs" required><br>
+
+                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    title="Should be one number, one uppercase, one lowercase letter, and at least 8 characters"
+                    placeholder = "Password" 
+                    name="password"  value=""class="inputs" required><br>
+                    <?php  
+                                    if(isset($message))  
+                                    {  
+                                        echo '<label class="text-danger">'.$message.'</label>';  
+                                    }  
+                        ?>  
+
+            <input type="submit" class="button-filled" name="btnLogin" value="Sign in">
+                <p>Already have an account?</p>
+                
+                <a class="button-outlined" type="submit" value="Submit" href="register.php">Register</a>
+
+      </div>
   
 </form> 
+<div id="snackbar"></div>
 </div>
-	<div class="flex-container" id="footer">
 
-			<p>&copy 2018 SOMETHING</p>
-
-		</div>
-
-
-</body>
-
-</html>
+<?php  require "./small/footer.php" ?>
