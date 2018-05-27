@@ -119,10 +119,20 @@ body {
 	max-width: 70px;
 	max-height: 100px;
 	margin-top: 10px;
+	align-self: center;
 }
 
 .card-pos {
 	text-align: center;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+}
+.card-pos img{
+	width:100px;
+	
 }
 
 .hide-it {

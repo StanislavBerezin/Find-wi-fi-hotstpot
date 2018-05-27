@@ -23,6 +23,7 @@
                         <h3> ${arrayName[i].innerHTML}</h3>
                         <p>${arrayAddress[i].innerHTML} </p>
                         <img class='resize' src ="http://pluspng.com/img-png/wifi-hd-png-wi-fi-png-images-png-image-1008.png">
+                        <a href=" http://localhost:8080/CAB230/review.php?latitude=${arrayLati[i].value}&longitude=${arrayLong[i].value}" class='button-filled'>Leave a review</a>
                         </div>`
 
          })
