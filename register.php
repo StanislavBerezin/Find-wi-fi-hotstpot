@@ -32,7 +32,7 @@ session_start();
                     <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Should be one number, one uppercase, one lowercase letter, and at least 8 characters"
                         placeholder="Confirm password" name="repeat" value="" class="inputs" required><br>
 
-                    <input type="text" name='username' class="inputs" placeholder="Username" pattern="[a-Z]{4,10}" title="Username should only contain letters e.g Samy and from 4-10 char long"
+                    <input type="text" name='username' class="inputs" placeholder="Username" pattern="[a-z]{4,8}" title="Username should only contain small letters e.g samy and from 4-8 char long"
                         required>
 
                     <div class="radio-btns">
